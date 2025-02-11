@@ -1,21 +1,27 @@
-Leetcode Algorithms Solutions
-Welcome to my Leetcode Solutions repository! 🚀
+# Leetcode Algorithms Solutions  
 
-This repository contains my solutions to various Leetcode problems, written in C#. I regularly update it as I solve more problems.
+Welcome to my **Leetcode Solutions** repository! 🚀  
 
-🛠️ Languages Used
-✅ C#
+This repository contains my solutions to various Leetcode problems, written in **C#**. I regularly update it as I solve more problems.  
 
-🔥 Why This Repo?
-To track my progress on Leetcode
-To help others understand different approaches
-To improve my problem-solving skills
-🌟 How to Use?
-Clone the repo:
-git clone https://github.com/your-github-username/leetcode-solutions.git
-Navigate to a problem folder and check out the solution.
+## 🛠️ Languages Used  
+✅ C#  
+
+## 🔥 Why This Repo?  
+- To track my **progress** on Leetcode  
+- To **help** others understand different approaches  
+- To improve my **problem-solving** skills  
+
+## 🌟 How to Use?  
+1. Clone the repo:  
+   ```bash
+   git clone https://github.com/your-github-username/leetcode-solutions.git
+##
+2. Navigate to a problem folder and check out the solution.
 💡 Contributing
+##
 Feel free to suggest better solutions or optimizations! 🚀
 
 📢 Connect with Me
-💼[LinkedIn](https://www.linkedin.com/in/mirgubad-akbarov-191b32242/) | 📧 mirgubad@gmail.com
+##
+💼 LinkedIn [LinkedIn](https://www.linkedin.com/in/mirgubad-akbarov-191b32242/) | 📧 mirgubad@gmail.com 
