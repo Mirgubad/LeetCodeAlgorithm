@@ -6,9 +6,111 @@ class Program
 {
     static void Main(string[] args)
     {
+
+    }
+
+    public static int MinDepth(TreeNode root)
+    {
+        if (root == null) return 0; // Base case: empty tree has depth 0
+
+        if (root.left == null) return MinDepth(root.right) + 1; // No left subtree, check right
+        if (root.right == null) return MinDepth(root.left) + 1; // No right subtree, check left
+
+        return Math.Min(MinDepth(root.left), MinDepth(root.right)) + 1; // Take the minimum depth of both subtrees
     }
 
 
+    public static bool IsBalanced(TreeNode root)
+    {
+        return CheckHeight(root) != -1;
+    }
+
+    private static int CheckHeight(TreeNode node)
+    {
+        if (node == null) return 0; // Base case: height of an empty tree is 0
+
+        int leftHeight = CheckHeight(node.left);
+        if (leftHeight == -1) return -1; // Left subtree is not balanced
+
+        int rightHeight = CheckHeight(node.right);
+        if (rightHeight == -1) return -1; // Right subtree is not balanced
+
+        if (Math.Abs(leftHeight - rightHeight) > 1) return -1; // Current node is unbalanced
+
+        return Math.Max(leftHeight, rightHeight) + 1; // Return the height of the current node
+    }
+
+    public static TreeNode SortedArrayToBST(int[] nums)
+    {
+        if (nums == null || nums.Length == 0) return null;
+        return BuildBST(nums, 0, nums.Length - 1);
+    }
+    private static TreeNode BuildBST(int[] nums, int left, int right)
+    {
+        if (left > right) return null; // Base case
+
+        int mid = left + (right - left) / 2; // Middle element as root
+        TreeNode root = new TreeNode(nums[mid]);
+
+        root.left = BuildBST(nums, left, mid - 1);  // Construct left subtree
+        root.right = BuildBST(nums, mid + 1, right); // Construct right subtree
+
+        return root;
+    }
+    public static int MaxDepth(TreeNode root)
+    {
+        if (root == null) return 0; // Base case: empty tree has depth 0
+
+        int leftDepth = MaxDepth(root.left);
+        int rightDepth = MaxDepth(root.right);
+
+        return Math.Max(leftDepth, rightDepth) + 1; // Add 1 for the current node
+    }
+
+    public static bool IsSymmetric(TreeNode root)
+    {
+        if (root == null) return true; // An empty tree is symmetric
+        return IsMirror(root.left, root.right);
+    }
+    private static bool IsMirror(TreeNode t1, TreeNode t2)
+    {
+        if (t1 == null && t2 == null) return true;  // Both are null, symmetric
+        if (t1 == null || t2 == null) return false; // One is null, not symmetric
+        if (t1.val != t2.val) return false;         // Values are different, not symmetric
+
+        // Check mirrored subtrees
+        return IsMirror(t1.left, t2.right) && IsMirror(t1.right, t2.left);
+    }
+    public static bool IsSameTree(TreeNode p, TreeNode q)
+    {
+        if (p == null && q == null) return true;  // Both are null, so they are the same
+        if (p == null || q == null) return false; // One is null, but the other is not
+        if (p.val != q.val) return false;         // Values are different
+
+        // Recursively check left and right subtrees
+        return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+    }
+    public static IList<int> InorderTraversal(TreeNode root)
+    {
+        var result = new List<int>();
+        var stack = new Stack<TreeNode>();
+        var current = root;
+
+        while (current != null || stack.Count > 0)
+        {
+            while (current != null)
+            {
+                stack.Push(current);
+                current = current.left; // Move to the leftmost node
+            }
+
+            current = stack.Pop(); // Visit node
+            result.Add(current.val);
+            current = current.right; // Move to the right subtree
+        }
+
+        return result;
+    }
     public static void Merge(int[] nums1, int m, int[] nums2, int n)
     {
         for (int i = m; i < nums1.Length; i++)
